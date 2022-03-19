@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2012-03-19T15:57:00Z" product-name="powermail_countries">
+		<header/>
+		<body>
+			<trans-unit id="tx_powermail_domain_model_field.format">
+				<source>Format</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.country_code.a2">
+				<source>ISO 3166-1 A2 Country code</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.country_code.a3">
+				<source>ISO 3166-1 A3 Country code</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.limitation">
+				<source>Limitation</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.limitation.no_limit">
+				<source>No limit</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.limitation.eu">
+				<source>European Union (EU)</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.limitation.un">
+				<source>United Nations (UN)</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.limitation.territories">
+				<source>By Territories</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.territories">
+				<source>Territories</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.config">
+				<source>Country Configuration</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

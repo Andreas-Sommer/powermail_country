@@ -1,0 +1,5 @@
+plugin.tx_powermail_country {
+	view {
+		partialRootPath = EXT:powermail_country/Resources/Private/Partials/
+	}
+}

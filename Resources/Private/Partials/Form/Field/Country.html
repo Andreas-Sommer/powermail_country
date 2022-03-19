@@ -1,0 +1,21 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+{namespace pc=Belsignum\PowermailCountry\ViewHelpers}
+
+<div class="powermail_fieldwrap powermail_fieldwrap_type_country powermail_fieldwrap_{field.marker} {field.css} {settings.styles.framework.fieldAndLabelWrappingClasses}">
+	<f:render partial="Form/FieldLabel" arguments="{_all}" />
+
+	<div class="{settings.styles.framework.fieldWrappingClasses}">
+		<f:form.select
+				property="{field.marker}"
+				options="{pc:countries(field: field)}"
+				optionValueField="{pc:optionValueField(format: field.format)}"
+				optionLabelField="{pc:optionLabelField()}"
+				sortByOptionLabel="true"
+				prependOptionLabel="{f:translate(key:'pleaseChoose')}"
+				class="powermail_country {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}"
+				value="{vh:Misc.PrefillField(field:field, mail:mail)}"
+				additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+				id="powermail_field_{field.marker}" />
+	</div>
+
+</div>
