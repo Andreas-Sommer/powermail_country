@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2012-03-19T15:57:00Z" product-name="powermail_countries">
+	<file source-language="en" datatype="plaintext" original="messages" date="2012-03-19T15:57:00Z" product-name="powermail_country">
 		<header/>
 		<body>
 			<trans-unit id="tx_powermail_domain_model_field.format">
