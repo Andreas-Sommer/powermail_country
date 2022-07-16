@@ -2,6 +2,7 @@
 
 namespace Belsignum\PowermailCountry\ViewHelpers;
 
+use Belsignum\PowermailCountry\Domain\Model\Field;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class OptionValueFieldViewHelper extends AbstractViewHelper
@@ -28,7 +29,7 @@ class OptionValueFieldViewHelper extends AbstractViewHelper
 	 */
 	public function render(): string
 	{
-		/** @var \Belsignum\PowermailCountry\Domain\Model\Field $field */
+		/** @var Field $field */
 		$format = $this->arguments['format'];
 
 		return static::FORMAT_FIELD_NAMES[$format];

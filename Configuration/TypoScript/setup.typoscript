@@ -8,30 +8,3 @@ plugin.tx_powermail {
 		}
 	}
 }
-
-# Add new Field Properties
-config.tx_extbase{
-	persistence{
-		classes{
-
-			In2code\Powermail\Domain\Model\Field {
-				subclasses {
-					1 = Belsignum\PowermailCountry\Domain\Model\Field
-				}
-			}
-			Belsignum\PowermailCountry\Domain\Model\Field {
-				mapping {
-					tableName = tx_powermail_domain_model_field
-					columns {
-						tx_powermailcountry_format.mapOnProperty = format
-						tx_powermailcountry_limit.mapOnProperty = limit
-						tx_powermailcountry_territories.mapOnProperty = territories
-					}
-				}
-			}
-		}
-	}
-	objects {
-		In2code\Powermail\Domain\Model\Field.className = Belsignum\PowermailCountry\Domain\Model\Field
-	}
-}

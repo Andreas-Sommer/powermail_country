@@ -1,4 +1,5 @@
 <?php
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use In2code\Powermail\Domain\Model\Field;
 
 /**
@@ -44,7 +45,7 @@ $tmp_powermail_country = [
 	]
 ];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
+ExtensionManagementUtility::addTCAcolumns(
 	Field::TABLE_NAME,
 	$tmp_powermail_country
 );

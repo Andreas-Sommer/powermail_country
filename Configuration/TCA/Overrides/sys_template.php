@@ -1,10 +1,11 @@
 <?php
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 defined('TYPO3_MODE') || die();
 
 /**
  * Include TypoScript
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
+ExtensionManagementUtility::addStaticFile(
     'powermail_country',
     'Configuration/TypoScript/',
     'Main Template'
