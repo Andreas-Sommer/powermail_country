@@ -1,5 +1,5 @@
 {
-    "name": "/powermail-country",
+    "name": "belsignum/powermail-country",
     "type": "typo3-cms-extension",
     "description": "Improve Country select with more options based on static_info_tables",
     "version": "11.0.0",
