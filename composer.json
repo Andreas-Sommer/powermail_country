@@ -2,7 +2,7 @@
     "name": "belsignum/powermail-country",
     "type": "typo3-cms-extension",
     "description": "Improve Country select with more options based on static_info_tables",
-    "version": "10.0.0",
+    "version": "11.0.0",
     "authors": [
         {
             "name": "Andreas Sommer",
@@ -13,7 +13,7 @@
     "require": {
         "typo3/cms-core": "^10.4",
         "in2code/powermail": ">=8.0.0 <9.0.0",
-        "sjbr/static-info-tables": "6.9.6"
+        "sjbr/static-info-tables": "^6.9.6"
     },
     "autoload": {
         "psr-4": {
