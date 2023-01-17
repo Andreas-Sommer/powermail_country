@@ -20,10 +20,6 @@
             "Belsignum\\PowermailCountry\\": "Classes"
         }
     },
-    "replace": {
-        "belsignum/powermail_country": "self.version",
-        "typo3-ter/powermail-country": "self.version"
-    },
     "extra": {
         "typo3/cms": {
             "extension-key": "powermail_country"
