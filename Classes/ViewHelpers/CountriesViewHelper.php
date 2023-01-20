@@ -60,9 +60,7 @@ class CountriesViewHelper extends AbstractViewHelper
 				break;
 			case 3:
 				/** @var TerritoryRepository $territoryRepository */
-				$territoryRepository = ObjectUtility::getObjectManager()->get(
-					TerritoryRepository::class
-				);
+				$territoryRepository = GeneralUtility::makeInstance(TerritoryRepository::class);
 				$territories = $territoryRepository
 					->findAllByUidInList($field->getTerritories())->toArray();
 				$countries = $this->findByTerritories($territories);
