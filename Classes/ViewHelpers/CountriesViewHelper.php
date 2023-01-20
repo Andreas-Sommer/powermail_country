@@ -21,7 +21,7 @@ class CountriesViewHelper extends AbstractViewHelper
 	public function initialize()
 	{
 		parent::initialize();
-		$this->countryRepository = ObjectUtility::getObjectManager()->get(CountryRepository::class);
+		$this->countryRepository = GeneralUtility::makeInstance(CountryRepository::class);
 	}
 
 	/**
