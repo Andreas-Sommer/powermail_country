@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', event => {
 
 class PowermailCounty {
   constructor(countrySelect) {
-    this.coutrySelect = countrySelect;
+    this.countrySelect = countrySelect;
     this._controller();
     // remove required as controlled by country field toggle county select
     countrySelect.closest('form').querySelector('.powermail_county').removeAttribute('required');
@@ -38,38 +38,50 @@ class PowermailCounty {
 
   _controller() {
     let that = this;
-    that.coutrySelect.addEventListener('change', event => {
-      const powermailForm = event.target.closest('form');
-      let countySelect = powermailForm.querySelector('.powermail_county');
-      const apiEndpoint = countySelect.dataset.asyncUri;
-      axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-      axios.post(apiEndpoint, {
-        'tx_powermailcountry_ajax[isoCode]': event.target.value
-      })
-        .then(function (response) {
-          const count = Object.keys(response.data.counties).length
-          // counties found
-          if (count > 0) {
-            // cleanup options
-            that._clearCountyOptions(countySelect);
-            // show select and set required
-            countySelect.closest('.powermail_fieldwrap').classList.remove('d-none');
-            countySelect.setAttribute('required', 'required');
-            for (const [value, label] of Object.entries(response.data.counties)) {
-              // add options
-              let opt = document.createElement('option');
-              opt.value = value;
-              opt.innerHTML = label;
-              countySelect.appendChild(opt);
-            }
-          } else {
-            // no counties => cleanup, hide and remove required
-            that._clearCountyOptions(countySelect);
-            countySelect.closest('.powermail_fieldwrap').classList.add('d-none');
-            countySelect.removeAttribute('required');
-          }
-        });
+    const powermailForm = that.countrySelect.closest('form');
+    let countySelect = powermailForm.querySelector('.powermail_county');
+    const apiEndpoint = countySelect.dataset.asyncUri;
+    axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
+    // init country field
+    if(that.countrySelect.value)
+    {
+      this._requestCounties(that.countrySelect, countySelect, apiEndpoint, that);
+    }
+
+    // change country field
+    that.countrySelect.addEventListener('change', event => {
+      this._requestCounties(event.target, countySelect, apiEndpoint, that);
     });
+  }
+
+  _requestCounties(countrySelect, countySelect, apiEndpoint, that) {
+    axios.post(apiEndpoint, {
+      'tx_powermailcountry_ajax[isoCode]': countrySelect.value
+    })
+      .then(function (response) {
+        const count = Object.keys(response.data.counties).length
+        // counties found
+        if (count > 0) {
+          // cleanup options
+          that._clearCountyOptions(countySelect);
+          // show select and set required
+          countySelect.closest('.powermail_fieldwrap').classList.remove('d-none');
+          countySelect.setAttribute('required', 'required');
+          for (const [value, label] of Object.entries(response.data.counties)) {
+            // add options
+            let opt = document.createElement('option');
+            opt.value = value;
+            opt.innerHTML = label;
+            countySelect.appendChild(opt);
+          }
+        } else {
+          // no counties => cleanup, hide and remove required
+          that._clearCountyOptions(countySelect);
+          countySelect.closest('.powermail_fieldwrap').classList.add('d-none');
+          countySelect.removeAttribute('required');
+        }
+      });
   }
 
   _clearCountyOptions(countySelect)
