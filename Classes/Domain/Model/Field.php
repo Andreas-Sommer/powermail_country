@@ -18,6 +18,11 @@ class Field extends \In2code\Powermail\Domain\Model\Field
     protected $limit = 0;
 
     /**
+     * @var bool
+     */
+    protected $showCounty = false;
+
+    /**
      * @var string
      */
     protected $territories = '';
@@ -53,6 +58,16 @@ class Field extends \In2code\Powermail\Domain\Model\Field
 	{
 		$this->limit = $limit;
 	}
+
+    public function getShowCounty(): bool
+    {
+        return $this->showCounty;
+    }
+
+    public function setShowCounty(bool $showCounty): void
+    {
+        $this->showCounty = $showCounty;
+    }
 
 	/**
 	 * @return string

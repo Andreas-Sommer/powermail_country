@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "@symfony/webpack-encore": "4.4.0",
+    "axios": "1.6.7",
+    "core-js": "3.32.0",
+    "webpack-notifier": "1.15.0"
+  },
+  "scripts": {
+    "watch": "encore dev --watch",
+    "build:dev": "encore dev",
+    "build": "encore production"
+  }
+}

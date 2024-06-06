@@ -11,6 +11,9 @@ return [
 			'limit' => [
 				'fieldName' => 'tx_powermailcountry_limit'
 			],
+			'showCounty' => [
+				'fieldName' => 'tx_powermailcountry_show_county'
+			],
 			'territories' => [
 				'fieldName' => 'tx_powermailcountry_territories'
 			],

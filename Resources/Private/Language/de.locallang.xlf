@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:powermail_country/Resources/Private/Language/locallang.xlf" date="2024-06-03T18:00:00Z" product-name="powermailCountry">
+		<header/>
+		<body>
+			<trans-unit id="county">
+				<target>Bundesland</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

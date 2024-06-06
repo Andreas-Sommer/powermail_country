@@ -12,10 +12,20 @@
 				optionLabelField="{pc:optionLabelField()}"
 				sortByOptionLabel="true"
 				prependOptionLabel="{f:translate(key:'pleaseChoose')}"
-				class="powermail_country {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}"
+				class="powermail_country {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}{f:if(condition: field.showCounty, then: 'connected-county')}"
 				value="{vh:Misc.PrefillField(field:field, mail:mail)}"
 				additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
-				id="powermail_field_{field.marker}" />
+				id="powermail_field_{field.marker}"
+        />
 	</div>
-
 </div>
+
+<f:variable name="updateValues" value="{marker: 'county', title: '{f:translate(key: \'county\', extensionName: \'powermailCountry\')}'}" />
+
+<f:if condition="{field.showCounty}">
+    <f:render partial="Form/Field/County" arguments="{
+        field: '{pc:updateFieldObject(field: field, values: updateValues)}',
+        mail: mail,
+        settings: settings
+    }"/>
+</f:if>

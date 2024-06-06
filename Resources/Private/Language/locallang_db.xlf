@@ -30,6 +30,9 @@
 			<trans-unit id="tx_powermail_domain_model_field.territories">
 				<source>Territories</source>
 			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.show_county">
+				<source>Show corresponding county</source>
+			</trans-unit>
 			<trans-unit id="tx_powermail_domain_model_field.config">
 				<source>Country Configuration</source>
 			</trans-unit>

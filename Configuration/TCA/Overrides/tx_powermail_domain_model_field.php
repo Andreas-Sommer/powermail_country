@@ -31,6 +31,17 @@ $tmp_powermail_country = [
 			]
 		]
 	],
+    'tx_powermailcountry_show_county' => [
+        'exclude' => 0,
+        'label' => 'LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.show_county',
+        'config' => [
+            'type' => 'check',
+            'items' => [
+                // label, value
+                ['LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.show_county', 1],
+            ],
+        ],
+    ],
 	'tx_powermailcountry_territories' => [
 		'exclude' => 0,
 		'label' => 'LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.territories',
@@ -54,7 +65,7 @@ ExtensionManagementUtility::addTCAcolumns(
  * Palette
  */
 $GLOBALS['TCA'][Field::TABLE_NAME]['palettes']['country_configuration'] = [
-	'showitem' => 'tx_powermailcountry_format, tx_powermailcountry_limit, tx_powermailcountry_territories',
+	'showitem' => 'tx_powermailcountry_format, tx_powermailcountry_limit, tx_powermailcountry_show_county, --linebreak--, tx_powermailcountry_territories',
 	'canNotCollapse' => 1
 ];
 

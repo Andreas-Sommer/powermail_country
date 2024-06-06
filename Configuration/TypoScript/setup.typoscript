@@ -8,3 +8,38 @@ plugin.tx_powermail {
 		}
 	}
 }
+
+# Include Async County JavaScript
+page.includeJSFooterlibs.powermailCountry = EXT:powermail_country/Resources/Public/JavaScript/powermail-county.js
+
+# County json endpoint
+PowermailCountry_Ajax = PAGE
+PowermailCountry_Ajax {
+  typeNum = 1717490714
+  config {
+    additionalHeaders.10.header = Content-Type: application/json
+    no_cache = 1
+    disableAllHeaderCode = 1
+    disablePrefixComment = 1
+    xhtml_cleaning = 0
+    admPanel = 0
+    debug = 0
+  }
+
+  10 < tt_content.list.20.powermailcountry_ajax
+}
+
+# Custom County Mapping
+plugin.tx_powermailcountry.settings.mapping {
+  country_zones {
+    /*
+    MX {
+      AG = Aguascalientes
+      BC = Baja California
+      BS = Baja California Sur
+      ...
+    }
+    MEX < .MX
+    */
+  }
+}

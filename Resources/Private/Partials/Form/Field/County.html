@@ -1,0 +1,25 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+{namespace pc=Belsignum\PowermailCountry\ViewHelpers}
+
+<div class="powermail_fieldwrap powermail_fieldwrap_type_country powermail_fieldwrap_{fieldMarker} d-none {css} {settings.styles.framework.fieldAndLabelWrappingClasses}">
+    <f:render partial="Form/FieldLabel"
+              arguments="{field: field, settings: settings}" />
+
+	<div class="{settings.styles.framework.fieldWrappingClasses}">
+        <f:form.select
+            property="{field.marker}"
+            sortByOptionLabel="true"
+            prependOptionLabel="{f:translate(key:'pleaseChoose')}"
+            class="powermail_county {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}"
+            value="{vh:Misc.PrefillField(field:field, mail:mail)}"
+            additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field, additionalAttributes: '{data-async-uri: \'{f:uri.action(
+                extensionName: \\\'PowermailCountry\\\',
+                pluginName: \\\'Ajax\\\',
+                controller: \\\'Ajax\\\',
+                action: \\\'county\\\',
+                pageType: 1717490714
+                )}\'}')}"
+            id="powermail_field_{field.marker}"
+        />
+	</div>
+</div>

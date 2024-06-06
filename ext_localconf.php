@@ -7,5 +7,19 @@ defined('TYPO3_MODE') or die();
 (function ()
 {
 	TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\Container\Container::class)
-				  ->registerImplementation(\In2code\Powermail\Domain\Model\Field::class, \Belsignum\PowermailCountry\Domain\Model\Field::class);
+				  ->registerImplementation(
+                      \In2code\Powermail\Domain\Model\Field::class,
+                      \Belsignum\PowermailCountry\Domain\Model\Field::class
+                  );
+
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'PowermailCountry',
+        'Ajax',
+        [
+            \Belsignum\PowermailCountry\Controller\AjaxController::class => 'county'
+        ],
+        [
+            \Belsignum\PowermailCountry\Controller\AjaxController::class => 'county'
+        ]
+    );
 })();

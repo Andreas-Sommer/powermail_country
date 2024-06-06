@@ -1,1 +1,5 @@
 .idea
+node_modules
+
+/Resources/Public/JavaScript/entrypoints.json
+/Resources/Public/JavaScript/manifest.json
