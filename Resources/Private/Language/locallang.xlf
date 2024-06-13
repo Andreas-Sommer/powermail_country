@@ -4,7 +4,7 @@
 		<header/>
 		<body>
 			<trans-unit id="county">
-				<source>County</source>
+				<source>State</source>
 			</trans-unit>
 		</body>
 	</file>
