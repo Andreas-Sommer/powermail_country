@@ -7,10 +7,16 @@
 				<source>Format</source>
 			</trans-unit>
 			<trans-unit id="tx_powermail_domain_model_field.country_code.a2">
-				<source>ISO 3166-1 A2 Country code</source>
+				<source>ISO 3166-1 A2 Country Code</source>
 			</trans-unit>
 			<trans-unit id="tx_powermail_domain_model_field.country_code.a3">
-				<source>ISO 3166-1 A3 Country code</source>
+				<source>ISO 3166-1 A3 Country Code</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.country_code.cn_short_en">
+				<source>English Country Short Name</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.country_code.custom">
+				<source>Custom Names - Use Options Field</source>
 			</trans-unit>
 			<trans-unit id="tx_powermail_domain_model_field.limitation">
 				<source>Limitation</source>

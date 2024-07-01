@@ -37,10 +37,6 @@ class AjaxController extends ActionController
     public function countyAction(string $isoCode): string
     {
         $strLength = strlen($isoCode);
-        if ($strLength < 2 || $strLength > 3)
-        {
-            $this->throwStatus(403, 'Country code does not match length specification');
-        }
         $counties = $this->getCounties($isoCode, $strLength);
 
         return json_encode([
@@ -48,7 +44,6 @@ class AjaxController extends ActionController
             'isoCode'  => $isoCode,
             'counties' => $counties
         ]);
-
     }
 
     protected function getCounties(string $isoCode, int $strLength): array
@@ -58,6 +53,13 @@ class AjaxController extends ActionController
         {
             // mapping is found and prioritised
             return $counties;
+        }
+
+        if ($strLength < 2 || $strLength > 3)
+        {
+            // Country code does not match TypoScript mapping
+            // and length does not match country_zones specification
+            return [];
         }
 
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
@@ -75,7 +77,6 @@ class AjaxController extends ActionController
             ->execute();
         while ($row = $statement->fetchAssociative())
         {
-            // Do something with that single row
             $counties[$row['zn_code']] = $row['zn_name_local'];
         }
         return $counties;
@@ -83,7 +84,7 @@ class AjaxController extends ActionController
 
     protected function getCountriesByTypoScriptMapping(string $isoCode): array
     {
+        $isoCode = str_replace(' ', '-', $isoCode);
         return $this->settings['mapping']['country_zones'][strtoupper($isoCode)] ?? [];
     }
-
 }

@@ -1,6 +1,9 @@
 # Belsignum/Powermail-Country
 Improve the Powermail select option list
-- Option value: Choose between ISO 3166-1 A2/A3 country code
+- Option value: Choose between
+  - ISO 3166-1 A2/A3 country code
+  - English Short Name
+  - Custom List
 - Limitation
     - All static_countries
     - European Union (EU)
@@ -8,7 +11,7 @@ Improve the Powermail select option list
     - Territories Select List
 - Label value respect current language and static_info_tables_* modifications
 - Available Hook to post modify option list
-- Dynamic add of available County list
+- Dynamic add of available State list for Format Options ISO 3166-1 A2/A3
     - Custom mapping possible by TypoScript
 
 ## Requirements
@@ -43,6 +46,7 @@ plugin.tx_powermailcountry.settings.mapping {
 ```
 
 ## Changelog
+- 11.2.0 - Add English Short Name and Custom Format Option
 - 11.1.0 - Add corresponding County Select
 - 11.0.0 - Support for TYPO3 v11 (thanks to Frank Gerards)
 

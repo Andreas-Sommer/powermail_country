@@ -3,20 +3,37 @@
 
 <div class="powermail_fieldwrap powermail_fieldwrap_type_country powermail_fieldwrap_{field.marker} {field.css} {settings.styles.framework.fieldAndLabelWrappingClasses}">
 	<f:render partial="Form/FieldLabel" arguments="{_all}" />
-
 	<div class="{settings.styles.framework.fieldWrappingClasses}">
-		<f:form.select
-				property="{field.marker}"
-				options="{pc:countries(field: field)}"
-				optionValueField="{pc:optionValueField(format: field.format)}"
-				optionLabelField="{pc:optionLabelField()}"
-				sortByOptionLabel="true"
-				prependOptionLabel="{f:translate(key:'pleaseChoose')}"
-				class="powermail_country {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}{f:if(condition: field.showCounty, then: 'connected-county')}"
-				value="{vh:Misc.PrefillField(field:field, mail:mail)}"
-				additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
-				id="powermail_field_{field.marker}"
-        />
+        <f:if condition="{field.format} == 3">
+            <f:then>
+                <vh:form.selectField
+                    property="{field.marker}"
+                    options="{field.modifiedSettings}"
+                    sortByOptionLabel="true"
+                    prependOptionLabel="{f:translate(key:'pleaseChoose')}"
+                    class="powermail_country {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}{f:if(condition: field.showCounty, then: 'connected-county')}"
+                    value="{vh:Misc.PrefillField(field:field, mail:mail)}"
+                    additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+                    id="powermail_field_{field.marker}"
+                />
+            </f:then>
+            <f:else>
+                <f:form.select
+                    property="{field.marker}"
+                    options="{pc:countries(field: field)}"
+                    optionValueField="{pc:optionValueField(format: field.format)}"
+                    optionLabelField="{pc:optionLabelField()}"
+                    sortByOptionLabel="true"
+                    prependOptionLabel="{f:translate(key:'pleaseChoose')}"
+                    class="powermail_country {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}{f:if(condition: field.showCounty, then: 'connected-county')}"
+                    value="{vh:Misc.PrefillField(field:field, mail:mail)}"
+                    additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+                    id="powermail_field_{field.marker}"
+                />
+            </f:else>
+        </f:if>
+
+
 	</div>
 </div>
 

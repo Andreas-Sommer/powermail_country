@@ -9,7 +9,8 @@ class OptionValueFieldViewHelper extends AbstractViewHelper
 {
 	protected const FORMAT_FIELD_NAMES = [
 		0 => 'isoCodeA2',
-		1 => 'isoCodeA3'
+		1 => 'isoCodeA3',
+		2 => 'shortNameEn'
 	];
 
 

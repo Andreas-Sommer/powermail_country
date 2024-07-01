@@ -8,18 +8,22 @@ use In2code\Powermail\Domain\Model\Field;
 $tmp_powermail_country = [
 	'tx_powermailcountry_format' => [
 		'label' => 'LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.format',
+        'onChange' => 'reload',
 		'config' => [
 			'type' => 'radio',
 			'default' => '0',
 			'items' => [
 				['LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.country_code.a2', '0'],
 				['LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.country_code.a3', '1'],
+				['LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.country_code.cn_short_en', '2'],
+				['LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.country_code.custom', '3'],
 			]
 		]
 	],
 	'tx_powermailcountry_limit' => [
 		'label' => 'LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.limitation',
 		'onChange' => 'reload',
+        'displayCond' => 'FIELD:tx_powermailcountry_format:<:3',
 		'config' => [
 			'type' => 'radio',
 			'default' => '0',
@@ -79,8 +83,8 @@ $typeCountry = 'pages, title, type, ' .
     '--palette--;LLL:EXT:powermail/Resources/Private/Language/locallang_db.xlf:' .
         Field::TABLE_NAME . '.prefill_title;31, ' .
     '--palette--;Layout;43, ' .
-	'description, ' .
-	'--palette--;LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.config;country_configuration, ' .
+	'description,' .
+	'--palette--;LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.config;country_configuration, settings, ' .
     '--palette--;LLL:EXT:powermail/Resources/Private/Language/locallang_db.xlf:' .
         Field::TABLE_NAME . '.marker_title;5, ' .
     '--div--;LLL:EXT:powermail/Resources/Private/Language/locallang_db.xlf:tabs.access, ' .
@@ -88,3 +92,6 @@ $typeCountry = 'pages, title, type, ' .
 
 
 $GLOBALS['TCA'][Field::TABLE_NAME]['types']['country']['showitem'] = $typeCountry;
+
+
+#$GLOBALS['TCA'][Field::TABLE_NAME]['columns']['settings']['displayCond'] = 'FIELD:tx_powermailcountry_format:=:3';
