@@ -33,13 +33,13 @@ class PowermailCounty {
     this.countrySelect = countrySelect;
     this._controller();
     // remove required as controlled by country field toggle county select
-    countrySelect.closest('form').querySelector('.powermail_county').removeAttribute('required');
+    countrySelect.closest('form').querySelector('select.powermail_county').removeAttribute('required');
   }
 
   _controller() {
     let that = this;
     const powermailForm = that.countrySelect.closest('form');
-    let countySelect = powermailForm.querySelector('.powermail_county');
+    let countySelect = powermailForm.querySelector('select.powermail_county');
     const apiEndpoint = countySelect.dataset.asyncUri;
     axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
