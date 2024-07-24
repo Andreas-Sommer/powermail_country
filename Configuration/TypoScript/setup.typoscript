@@ -30,8 +30,11 @@ PowermailCountry_Ajax {
 }
 
 # Custom County Mapping
-plugin.tx_powermailcountry.settings.mapping {
-  country_zones {
+plugin.tx_powermailcountry.settings {
+  # Force zone name as value
+  force_zone_name_as_value = 0
+  # Mapping of country zones
+  mapping.country_zones {
     /*
     MX {
       AG = Aguascalientes

@@ -77,6 +77,10 @@ class AjaxController extends ActionController
             ->execute();
         while ($row = $statement->fetchAssociative())
         {
+            if($this->settings['force_zone_name_as_value'])
+            {
+                $row['zn_code'] = $row['zn_name_local'];
+            }
             $counties[$row['zn_code']] = $row['zn_name_local'];
         }
         return $counties;
@@ -85,6 +89,18 @@ class AjaxController extends ActionController
     protected function getCountriesByTypoScriptMapping(string $isoCode): array
     {
         $isoCode = str_replace(' ', '-', $isoCode);
-        return $this->settings['mapping']['country_zones'][strtoupper($isoCode)] ?? [];
+        $countryZones = $this->settings['mapping']['country_zones'][strtoupper($isoCode)] ?? [];
+
+        if($this->settings['force_zone_name_as_value'])
+        {
+            $data = [];
+            foreach ($countryZones as $zoneKey => $zoneName)
+            {
+                $data[$zoneName] = $zoneName;
+            }
+            $countryZones = $data;
+        }
+
+        return $countryZones;
     }
 }
