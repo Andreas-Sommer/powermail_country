@@ -88,9 +88,9 @@ class PowermailCounty {
   {
     let prependedOption;
     for (const option of countySelect.querySelectorAll('option')) {
-      if(option.value === '' || option.value === option.innerHTML) {
+      if(option.value === '') {
         // store prepended option
-        prependedOption= option;
+        prependedOption = option;
       }
       // remove all options
       countySelect.remove(option);
