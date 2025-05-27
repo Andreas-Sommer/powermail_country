@@ -10,10 +10,10 @@
     ],
     "license": "GPL-2.0-or-later",
     "require": {
-        "typo3/cms-core": "^10.4 || ^11.5",
-        "in2code/powermail": ">=8.0.0 <=10.9.99",
-        "sjbr/static-info-tables": ">=6.9.6"
-    },
+        "typo3/cms-core": "^12.4 || ^11.5",
+        "in2code/powermail": "^12.4.4",
+        "sjbr/static-info-tables": "^12.4.4"
+	},
     "autoload": {
         "psr-4": {
             "Belsignum\\PowermailCountry\\": "Classes"

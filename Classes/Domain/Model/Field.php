@@ -27,37 +27,37 @@ class Field extends \In2code\Powermail\Domain\Model\Field
      */
     protected $territories = '';
 
-	/**
-	 * @return int
-	 */
-	public function getFormat(): int
-	{
-		return $this->format;
-	}
+    /**
+     * @return int
+     */
+    public function getFormat(): int
+    {
+        return $this->format;
+    }
 
-	/**
-	 * @param int $format
-	 */
-	public function setFormat(int $format): void
-	{
-		$this->format = $format;
-	}
+    /**
+     * @param int $format
+     */
+    public function setFormat(int $format): void
+    {
+        $this->format = $format;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getLimit(): int
-	{
-		return $this->limit;
-	}
+    /**
+     * @return int
+     */
+    public function getLimit(): int
+    {
+        return $this->limit;
+    }
 
-	/**
-	 * @param int $limit
-	 */
-	public function setLimit(int $limit): void
-	{
-		$this->limit = $limit;
-	}
+    /**
+     * @param int $limit
+     */
+    public function setLimit(int $limit): void
+    {
+        $this->limit = $limit;
+    }
 
     public function getShowCounty(): bool
     {
@@ -69,20 +69,19 @@ class Field extends \In2code\Powermail\Domain\Model\Field
         $this->showCounty = $showCounty;
     }
 
-	/**
-	 * @return string
-	 */
-	public function getTerritories(): string
-	{
-		return $this->territories;
-	}
+    /**
+     * @return string
+     */
+    public function getTerritories(): string
+    {
+        return $this->territories;
+    }
 
-	/**
-	 * @param string $territories
-	 */
-	public function setTerritories(string $territories): void
-	{
-		$this->territories = $territories;
-	}
-
+    /**
+     * @param string $territories
+     */
+    public function setTerritories(string $territories): void
+    {
+        $this->territories = $territories;
+    }
 }

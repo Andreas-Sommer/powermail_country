@@ -77,7 +77,7 @@ class AjaxController extends ActionController
             ->execute();
         while ($row = $statement->fetchAssociative())
         {
-            if($this->settings['force_zone_name_as_value'])
+            if ($this->settings['force_zone_name_as_value'])
             {
                 $row['zn_code'] = $row['zn_name_local'];
             }
@@ -91,7 +91,7 @@ class AjaxController extends ActionController
         $isoCode = str_replace(' ', '-', $isoCode);
         $countryZones = $this->settings['mapping']['country_zones'][strtoupper($isoCode)] ?? [];
 
-        if($this->settings['force_zone_name_as_value'])
+        if ($this->settings['force_zone_name_as_value'])
         {
             $data = [];
             foreach ($countryZones as $zoneKey => $zoneName)

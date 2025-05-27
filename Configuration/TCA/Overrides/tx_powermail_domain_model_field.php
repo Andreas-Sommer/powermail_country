@@ -61,8 +61,8 @@ $tmp_powermail_country = [
 ];
 
 ExtensionManagementUtility::addTCAcolumns(
-	Field::TABLE_NAME,
-	$tmp_powermail_country
+    Field::TABLE_NAME,
+    $tmp_powermail_country
 );
 
 /**
@@ -90,8 +90,6 @@ $typeCountry = 'pages, title, type, ' .
     '--div--;LLL:EXT:powermail/Resources/Private/Language/locallang_db.xlf:tabs.access, ' .
     'sys_language_uid, l10n_parent, l10n_diffsource, hidden, starttime, endtime';
 
-
 $GLOBALS['TCA'][Field::TABLE_NAME]['types']['country']['showitem'] = $typeCountry;
-
 
 #$GLOBALS['TCA'][Field::TABLE_NAME]['columns']['settings']['displayCond'] = 'FIELD:tx_powermailcountry_format:=:3';

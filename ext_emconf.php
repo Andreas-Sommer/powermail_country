@@ -10,9 +10,9 @@ $EM_CONF[$_EXTKEY] = [
     'version' => '11.2.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '10.4.0-11.5.99',
-			'powermail' => '8.0.0-10.9.99',
-			'static_info_tables' => '6.9.6-11.5.99'
+            'typo3' => '12.4.0-12.4.99',
+			'powermail' => '12.4.0-12.9.99',
+			'static_info_tables' => '12.4.4-12.9.99'
         ],
         'conflicts' => [],
         'suggests' => [],
