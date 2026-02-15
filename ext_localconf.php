@@ -1,15 +1,13 @@
 <?php
 
 // Prevent Script from beeing called directly
-defined('TYPO3_MODE') or die();
+defined('TYPO3') || die('Access denied.');
 
 // encapsulate all locally defined variables
 (function () {
-    TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\Container\Container::class)
-    			  ->registerImplementation(
-    			      \In2code\Powermail\Domain\Model\Field::class,
-    			      \Belsignum\PowermailCountry\Domain\Model\Field::class
-    			  );
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][\In2code\Powermail\Domain\Model\Field::class] = [
+        'className' => \Belsignum\PowermailCountry\Domain\Model\Field::class,
+    ];
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
         'PowermailCountry',

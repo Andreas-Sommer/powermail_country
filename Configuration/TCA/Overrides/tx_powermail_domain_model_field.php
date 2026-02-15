@@ -13,10 +13,10 @@ $tmp_powermail_country = [
 			'type' => 'radio',
 			'default' => '0',
 			'items' => [
-				['LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.country_code.a2', '0'],
-				['LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.country_code.a3', '1'],
-				['LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.country_code.cn_short_en', '2'],
-				['LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.country_code.custom', '3'],
+				['label' => 'LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.country_code.a2', 'value' => '0'],
+				['label' => 'LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.country_code.a3', 'value' => '1'],
+				['label' => 'LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.country_code.cn_short_en', 'value' => '2'],
+				['label' => 'LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.country_code.custom', 'value' => '3'],
 			]
 		]
 	],
@@ -28,10 +28,10 @@ $tmp_powermail_country = [
 			'type' => 'radio',
 			'default' => '0',
 			'items' => [
-				['LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.limitation.no_limit', '0'],
-				['LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.limitation.eu', '1'],
-				['LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.limitation.un', '2'],
-				['LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.limitation.territories', '3']
+				['label' => 'LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.limitation.no_limit', 'value' => '0'],
+				['label' => 'LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.limitation.eu', 'value' => '1'],
+				['label' => 'LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.limitation.un', 'value' => '2'],
+				['label' => 'LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.limitation.territories', 'value' => '3']
 			]
 		]
 	],
@@ -42,7 +42,7 @@ $tmp_powermail_country = [
             'type' => 'check',
             'items' => [
                 // label, value
-                ['LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.show_county', 1],
+                ['label' => 'LLL:EXT:powermail_country/Resources/Private/Language/locallang_db.xlf:' . Field::TABLE_NAME . '.show_county', 1],
             ],
         ],
     ],

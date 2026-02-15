@@ -46,7 +46,10 @@ plugin.tx_powermailcountry.settings.mapping {
 ```
 
 ## Changelog
+- 12.0.0 - Support for TYPO3 v12
+  - Replace deprecated Extbase object container usage with TYPO3 v12 object override configuration
+  - Add Extbase persistence subclass/recordType mapping for Powermail country fields
+  - Modernize PHP codebase for TYPO3 v12 / PHP 8.3 (strict types, typed properties, safer argument handling)
 - 11.2.0 - Add English Short Name and Custom Format Option
 - 11.1.0 - Add corresponding County Select
 - 11.0.0 - Support for TYPO3 v11 (thanks to Frank Gerards)
-

@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
 namespace Belsignum\PowermailCountry\Domain\Model;
 
 /**
@@ -7,53 +8,29 @@ namespace Belsignum\PowermailCountry\Domain\Model;
  */
 class Field extends \In2code\Powermail\Domain\Model\Field
 {
-    /**
-     * @var int
-     */
-    protected $format = 0;
+    protected int $format = 0;
 
-    /**
-     * @var int
-     */
-    protected $limit = 0;
+    protected int $limit = 0;
 
-    /**
-     * @var bool
-     */
-    protected $showCounty = false;
+    protected bool $showCounty = false;
 
-    /**
-     * @var string
-     */
-    protected $territories = '';
+    protected string $territories = '';
 
-    /**
-     * @return int
-     */
     public function getFormat(): int
     {
         return $this->format;
     }
 
-    /**
-     * @param int $format
-     */
     public function setFormat(int $format): void
     {
         $this->format = $format;
     }
 
-    /**
-     * @return int
-     */
     public function getLimit(): int
     {
         return $this->limit;
     }
 
-    /**
-     * @param int $limit
-     */
     public function setLimit(int $limit): void
     {
         $this->limit = $limit;
@@ -69,17 +46,11 @@ class Field extends \In2code\Powermail\Domain\Model\Field
         $this->showCounty = $showCounty;
     }
 
-    /**
-     * @return string
-     */
     public function getTerritories(): string
     {
         return $this->territories;
     }
 
-    /**
-     * @param string $territories
-     */
     public function setTerritories(string $territories): void
     {
         $this->territories = $territories;
