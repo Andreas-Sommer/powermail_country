@@ -12,9 +12,12 @@ class OptionLabelFieldViewHelper extends AbstractViewHelper
     {
         $language = $GLOBALS['TYPO3_REQUEST']->getAttribute('language')->getTwoLetterIsoCode();
         $extKey = "static_info_tables_{$language}";
-        if (ExtensionManagementUtility::isLoaded($extKey)) {
+        if (ExtensionManagementUtility::isLoaded($extKey))
+        {
             $labelFieldName = 'shortName' . ucfirst((string) $language);
-        } else {
+        }
+        else
+        {
             $labelFieldName = 'shortNameEn';
         }
         return $labelFieldName;

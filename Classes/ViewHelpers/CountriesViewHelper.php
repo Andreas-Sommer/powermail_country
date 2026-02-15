@@ -36,7 +36,8 @@ class CountriesViewHelper extends AbstractViewHelper
         /** @var Field $field */
         $field = $this->arguments['field'];
 
-        switch ($field->getLimit()) {
+        switch ($field->getLimit())
+        {
             case 0:
             default:
                 $countries = $this->countryRepository->findAll()->toArray();
@@ -56,8 +57,10 @@ class CountriesViewHelper extends AbstractViewHelper
         }
 
         // Hook post country collection generation
-        if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['powermail_countries']['postCountryCollectionGeneration'] ?? null)) {
-            foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['powermail_countries']['postCountryCollectionGeneration'] as $classRef) {
+        if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['powermail_countries']['postCountryCollectionGeneration'] ?? null))
+        {
+            foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['powermail_countries']['postCountryCollectionGeneration'] as $classRef)
+            {
                 $procObj = GeneralUtility::makeInstance($classRef);
                 $countries = $procObj->postCountryCollectionProcess($countries, $this);
             }
@@ -78,11 +81,13 @@ class CountriesViewHelper extends AbstractViewHelper
          * @var int $_
          * @var Territory $territory
          */
-        foreach ($territories as $_ => $territory) {
+        foreach ($territories as $_ => $territory)
+        {
             $countries[] = $this->countryRepository->findByTerritory($territory)->toArray();
         }
 
-        if ($countries === []) {
+        if ($countries === [])
+        {
             return [];
         }
 

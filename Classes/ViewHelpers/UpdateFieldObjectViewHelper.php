@@ -22,9 +22,11 @@ class UpdateFieldObjectViewHelper extends AbstractViewHelper
         /** @var array<string, mixed> $values */
         $values = $this->arguments['values'];
 
-        foreach ($values as $name => $value) {
+        foreach ($values as $name => $value)
+        {
             $setterName = 'set' . str_replace(' ', '', ucwords(str_replace('_', ' ', (string)$name)));
-            if (!method_exists($field, $setterName)) {
+            if (!method_exists($field, $setterName))
+            {
                 continue;
             }
             $field->{$setterName}($value);
