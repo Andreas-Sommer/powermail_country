@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace Belsignum\PowermailCountry\ViewHelpers;
 
-use Belsignum\PowermailCountry\Domain\Model\Field;
+use Belsignum\PowermailCountry\Service\FieldConfigurationProvider;
+use In2code\Powermail\Domain\Model\Field;
 use SJBR\StaticInfoTables\Domain\Model\Territory;
 use SJBR\StaticInfoTables\Domain\Repository\CountryRepository;
 use SJBR\StaticInfoTables\Domain\Repository\TerritoryRepository;
@@ -14,10 +15,13 @@ class CountriesViewHelper extends AbstractViewHelper
 {
     protected CountryRepository $countryRepository;
 
+    protected FieldConfigurationProvider $fieldConfigurationProvider;
+
     public function initialize(): void
     {
         parent::initialize();
         $this->countryRepository = GeneralUtility::makeInstance(CountryRepository::class);
+        $this->fieldConfigurationProvider = GeneralUtility::makeInstance(FieldConfigurationProvider::class);
     }
 
     public function initializeArguments(): void
@@ -35,8 +39,9 @@ class CountriesViewHelper extends AbstractViewHelper
     {
         /** @var Field $field */
         $field = $this->arguments['field'];
+        $fieldConfiguration = $this->fieldConfigurationProvider->getConfiguration($field);
 
-        switch ($field->getLimit())
+        switch ($fieldConfiguration['limit'])
         {
             case 0:
             default:
@@ -51,7 +56,7 @@ class CountriesViewHelper extends AbstractViewHelper
             case 3:
                 /** @var TerritoryRepository $territoryRepository */
                 $territoryRepository = GeneralUtility::makeInstance(TerritoryRepository::class);
-                $territories = $territoryRepository->findAllByUidInList($field->getTerritories())->toArray();
+                $territories = $territoryRepository->findAllByUidInList($fieldConfiguration['territories'])->toArray();
                 $countries = $this->findByTerritories($territories);
                 break;
         }

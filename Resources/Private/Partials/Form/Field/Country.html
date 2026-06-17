@@ -1,17 +1,18 @@
 {namespace vh=In2code\Powermail\ViewHelpers}
 {namespace pc=Belsignum\PowermailCountry\ViewHelpers}
+<f:variable name="countryConfiguration" value="{pc:fieldConfiguration(field: field)}" />
 
 <div class="powermail_fieldwrap powermail_fieldwrap_type_country powermail_fieldwrap_{field.marker} {field.css} {settings.styles.framework.fieldAndLabelWrappingClasses}">
 	<f:render partial="Form/FieldLabel" arguments="{_all}" />
 	<div class="{settings.styles.framework.fieldWrappingClasses}">
-        <f:if condition="{field.format} == 3">
+        <f:if condition="{countryConfiguration.format} == 3">
             <f:then>
                 <vh:form.selectField
                     property="{field.marker}"
                     options="{field.modifiedSettings}"
                     sortByOptionLabel="true"
                     prependOptionLabel="{f:translate(key:'pleaseChoose')}"
-                    class="powermail_country {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}{f:if(condition: field.showCounty, then: 'connected-county')}"
+                    class="powermail_country {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}{f:if(condition: countryConfiguration.showCounty, then: 'connected-county')}"
                     value="{vh:Misc.PrefillField(field:field, mail:mail)}"
                     additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
                     id="powermail_field_{field.marker}"
@@ -21,11 +22,11 @@
                 <f:form.select
                     property="{field.marker}"
                     options="{pc:countries(field: field)}"
-                    optionValueField="{pc:optionValueField(format: field.format)}"
+                    optionValueField="{pc:optionValueField(format: countryConfiguration.format)}"
                     optionLabelField="{pc:optionLabelField()}"
                     sortByOptionLabel="true"
                     prependOptionLabel="{f:translate(key:'pleaseChoose')}"
-                    class="powermail_country {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}{f:if(condition: field.showCounty, then: 'connected-county')}"
+                    class="powermail_country {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}{f:if(condition: countryConfiguration.showCounty, then: 'connected-county')}"
                     value="{vh:Misc.PrefillField(field:field, mail:mail)}"
                     additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
                     id="powermail_field_{field.marker}"
@@ -39,7 +40,7 @@
 
 <f:variable name="updateValues" value="{marker: 'county', title: '{f:translate(key: \'county\', extensionName: \'powermailCountry\')}'}" />
 
-<f:if condition="{field.showCounty}">
+<f:if condition="{countryConfiguration.showCounty}">
     <f:render partial="Form/Field/County" arguments="{
         field: '{pc:updateFieldObject(field: field, values: updateValues)}',
         mail: mail,
